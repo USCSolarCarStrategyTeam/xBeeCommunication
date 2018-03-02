@@ -4,19 +4,19 @@
 import time
 import serial
 
-
 ser = serial.Serial(
 
-   port='/dev/ttyUSB0',
+   port='/dev/ttyUSB1',
    baudrate = 9600,
    parity=serial.PARITY_NONE,
    stopbits=serial.STOPBITS_ONE,
    bytesize=serial.EIGHTBITS,
    timeout=1
 )
-counter=0
+ser.flush()
 
 
 while 1:
-   x=ser.readline()
-   print x
+	#if ser.in_waiting()>0:
+   	x=ser.readline()
+   	print x
