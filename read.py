@@ -2,7 +2,7 @@ import serial
 import time
 from xbee import XBee, DigiMesh
 
-serial_port = serial.Serial('/dev/tty.usbserial-142', 9600)
+serial_port = serial.Serial('/dev/ttyUSB0', 9600)
 
 def error_call(e):
     print e

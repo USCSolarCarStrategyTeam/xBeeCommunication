@@ -1,13 +1,13 @@
-from xbee.thread import XBee, DigiMesh
+from xbee.thread import XBee, DigiMesh, ZigBee
 import serial
 import time
 
-ser = serial.Serial('/dev/tty.usbserial-141', 9600)
-xbee = DigiMesh(ser)
+ser = serial.Serial('/dev/ttyUSB0', 9600)
+xbee = ZigBee(ser)
 
 while True:
     try:
-        xbee.send('tx', dest_addr = '\x00\x13\xA2\x00\x40\xF7\xF9\xF7', data = 'hello')
+        xbee.tx(dest_addr = '\x00\x13\', data = 'hello')
         print "sent"
         time.sleep(0.5)
     except KeyboardInterrupt:
